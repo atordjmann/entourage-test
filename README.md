@@ -38,3 +38,7 @@ Un utilisateur peut ajouter une note sur chaque film.
 Si certaines questions vous semblent ambigües, choisissez ce qui est le plus pertinent pour vous.
 
 Bon courage ! 
+
+
+# Notes
+
