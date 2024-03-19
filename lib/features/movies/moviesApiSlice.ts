@@ -1,28 +1,18 @@
 // Need to use the React-specific entry point to import `createApi`
 import { RootState, createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { Movie } from "./movies";
+import { Movie, UpcomingMoviesDto } from "./movies";
 
-interface MoviesApiResponse {
-    dates: {
-        maximum: string,
-        minimum: string
-      },
-    page: number,
-    results: Movie[]
-}
 
 // Define a service using a base URL and expected endpoints
 export const moviesApiSlice = createApi({
   baseQuery: fetchBaseQuery({ 
-    baseUrl: "https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=1",
+    baseUrl: "https://api.themoviedb.org/3/movie/now_playing",
     prepareHeaders: (headers) => {
         const token = process.env.TMDB_TOKEN ?? ''
     
         // If we have a token set in state, let's assume that we should be passing it.
         headers.set('Authorization', `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ODhmYmRmMjZlYjRmYzNkMDFiMWEzOWZkNGYxNmVlZCIsInN1YiI6IjY1Zjc1MjQ3ZWI3OWMyMDE2MzUyZjY4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x9XiYPAOZKRrXaVygnafUn9jwqRv7O1uXJWpmYfg3wU`)
-        
-        console.log(headers);
-    
+            
         return headers
       },
   }),
@@ -30,14 +20,18 @@ export const moviesApiSlice = createApi({
   // Tag types are used for caching and invalidation.
   tagTypes: ["Movies"],
   endpoints: (build) => ({
-    // Supply generics for the return type (in this case `MoviesApiResponse`)
-    // and the expected query argument. If there is no argument, use `void`
-    // for the argument type instead.
-    getMovies: build.query<MoviesApiResponse, number>({
-      query: (limit = 10) => `?limit=${limit}`,
+    getMovies: build.query<UpcomingMoviesDto, number>({
+      query: (page) => `?page=${page}`,
       // `providesTags` determines which 'tag' is attached to the
       // cached data returned by the query.
       providesTags: (result, error, id) => [{ type: "Movies", id }],
+      serializeQueryArgs: ({ endpointName }) => {
+        return endpointName
+      },
+      // Refetch when the page arg changes
+      forceRefetch({ currentArg, previousArg }) {
+        return currentArg !== previousArg
+      },
     }),
   }),
 });

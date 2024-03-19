@@ -1,15 +1,15 @@
 "use client";
 import { useGetMoviesQuery } from "@/lib/features/movies/moviesApiSlice";
 import { useState } from "react";
-
-const options = [5, 10, 20, 30];
+import { Loader } from "../Loader";
+import Link from "next/link";
 
 export const Movies = () => {
-  const [numberOfMovies, setNumberOfMovies] = useState(10);
-  // Using a query hook automatically fetches data and returns query values
+  const [page, setMoviesPage] = useState(1);
   const { data, isError, isLoading, isSuccess } =
-    useGetMoviesQuery(numberOfMovies);
-
+    useGetMoviesQuery(page);
+  
+    let options = [1];
   if (isError) {
     return (
       <div>
@@ -20,20 +20,20 @@ export const Movies = () => {
 
   if (isLoading) {
     return (
-      <div>
-        <h1>Loading...</h1>
-      </div>
+      <Loader/>
     );
   }
 
   if (isSuccess) {
+    options = Array.from({length: data?.total_pages ?? 1 }, (_: any, i: number) => i + 1);
+
     return (
       <div>
-        <h3>Select the Quantity of Movies to Fetch:</h3>
+        <h3>Select the page</h3>
         <select
-          value={numberOfMovies}
+          value={page}
           onChange={(e) => {
-            setNumberOfMovies(Number(e.target.value));
+            setMoviesPage(Number(e.target.value));
           }}
         >
           {options.map((option) => (
@@ -42,8 +42,14 @@ export const Movies = () => {
             </option>
           ))}
         </select>
-        {data.results.map(({ id, title }) => (
-          <span>title</span>
+        {data.results.map(({ id, title, overview }) => (
+          <div key={id}>
+            <h1>{title}</h1>
+            <h2>{overview}</h2>
+            <Link href={`/movies/${id}`} className="button muted-button">
+              View Movie detail
+            </Link>
+          </div>
         ))}
       </div>
     );

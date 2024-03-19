@@ -21,7 +21,9 @@ export interface UpcomingMoviesDto {
       minimum: string
     },
     page: number,
-    results: Movie[]    
+    results: Movie[],
+    total_pages: number,
+    total_results: number    
 }
 
 export type OriginalLanguage = 'en' | 'fr';

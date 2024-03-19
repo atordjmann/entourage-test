@@ -75,3 +75,16 @@
     transform: translateY(0px);
   }
 }
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loaderImg {
+  height: 10vmin;
+  pointer-events: none;
+  background-color: #704cb6;
+}
