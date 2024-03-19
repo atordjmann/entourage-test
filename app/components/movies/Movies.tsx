@@ -2,7 +2,7 @@
 import { useGetMoviesQuery } from "@/lib/features/movies/moviesApiSlice";
 import { useState } from "react";
 import { Loader } from "../Loader";
-import Link from "next/link";
+import { Link } from "react-router-dom";
 
 export const Movies = () => {
   const [page, setMoviesPage] = useState(1);
@@ -46,9 +46,7 @@ export const Movies = () => {
           <div key={id}>
             <h1>{title}</h1>
             <h2>{overview}</h2>
-            <Link href={`/movies/${id}`} className="button muted-button">
-              View Movie detail
-            </Link>
+            <Link to={`/movies/${id}`}>View Movie detail</Link>
           </div>
         ))}
       </div>
