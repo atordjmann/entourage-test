@@ -11,7 +11,7 @@ export const moviesApiSlice = createApi({
         const token = process.env.TMDB_TOKEN ?? ''
     
         // If we have a token set in state, let's assume that we should be passing it.
-        headers.set('Authorization', `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI1ODhmYmRmMjZlYjRmYzNkMDFiMWEzOWZkNGYxNmVlZCIsInN1YiI6IjY1Zjc1MjQ3ZWI3OWMyMDE2MzUyZjY4NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.x9XiYPAOZKRrXaVygnafUn9jwqRv7O1uXJWpmYfg3wU`)
+        headers.set('Authorization', `Bearer ${process.env.TMDB_TOKEN}`)
             
         return headers
       },
