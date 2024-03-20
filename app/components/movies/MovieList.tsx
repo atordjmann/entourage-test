@@ -1,28 +1,24 @@
 "use client";
-import { useGetMoviesQuery } from "@/lib/features/movies/moviesApiSlice";
+import { useGetUpcomingMoviesQuery } from "@/lib/features/movies/moviesApiSlice";
 import { useState } from "react";
 import { Loader } from "../Loader";
+import { Error } from "../Error";
 import { Link } from "react-router-dom";
+import { Movie } from "./Movie";
 
-export const Movies = () => {
+export const MovieList = () => {
   const [page, setMoviesPage] = useState(1);
   const { data, isError, isLoading, isSuccess } =
-    useGetMoviesQuery(page);
+    useGetUpcomingMoviesQuery(page);
   
     let options = [1];
-  if (isError) {
-    return (
-      <div>
-        <h1>There was an error!!!</h1>
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <Loader/>
-    );
-  }
+    if (isError) {
+      return (<Error/>);
+    }
+  
+    if (isLoading) {
+      return (<Loader/>);
+    }
 
   if (isSuccess) {
     options = Array.from({length: data?.total_pages ?? 1 }, (_: any, i: number) => i + 1);
@@ -31,6 +27,7 @@ export const Movies = () => {
       <div>
         <h3>Select the page</h3>
         <select
+          title="select page"
           value={page}
           onChange={(e) => {
             setMoviesPage(Number(e.target.value));
@@ -42,11 +39,9 @@ export const Movies = () => {
             </option>
           ))}
         </select>
-        {data.results.map(({ id, title, overview }) => (
-          <div key={id}>
-            <h1>{title}</h1>
-            <h2>{overview}</h2>
-            <Link to={`/movies/${id}`}>View Movie detail</Link>
+        {data.results.map((movie) => (
+          <div key={movie.id}>
+            <Movie movie={movie}/>
           </div>
         ))}
       </div>

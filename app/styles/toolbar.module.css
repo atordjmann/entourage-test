@@ -1,0 +1,33 @@
+.responsive_toolbar {
+    background: #333;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    font-family: 'Impact';
+    box-shadow: 2px 2px 2px #ccc;
+  }
+
+.nav {
+  display: flex;
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-end;
+  background: #333;
+  box-shadow: 2px 2px 2px #ccc;
+  
+}
+
+.figure {
+  width: 40px;
+  height: 40px;
+  margin: 0px auto 0px 20px;
+  cursor: pointer;
+}
+
+.nav_element {
+  list-style-type: none;
+  margin: 0 15px;
+}
+
