@@ -1,10 +1,18 @@
-.movie_list {    
+.home_movie_list {    
   margin: 1%;
   top: -80px;
   border-radius: 10px 10px;
   background-color: #0d161d;
   position: relative;
   padding: 2%;
+}
+
+.movie_list {    
+    margin: 1%;
+    border-radius: 10px 10px;
+    background-color: #0d161d;
+    position: relative;
+    padding: 2%;
 }
 
 .page_selection {

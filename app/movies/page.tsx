@@ -1,12 +1,12 @@
 "use client"
 import { useState } from "react";
-import { Loader } from "../Loader";
-import { Error } from "../Error";
-import { MoviePreview } from "./MoviePreview";
-import styles from "../../styles/movies.module.css";
+import { Loader } from "../components/Loader";
+import { Error } from "../components/Error";
+import { MoviePreview } from "../components/movies/MoviePreview";
+import styles from "../styles/movies.module.css";
 import { useGetAllBeforeTodayQuery } from "@/lib/features/movies/moviesApiSlice";
 
-export const BeforeTodayMovieList = () => {
+function BeforeTodayMovieList() {
   const [page, setMoviesPage] = useState(1);
   const { data, isError, isLoading, isSuccess } =
     useGetAllBeforeTodayQuery(page);
@@ -52,3 +52,5 @@ export const BeforeTodayMovieList = () => {
 
   return null;
 };
+
+export default BeforeTodayMovieList;

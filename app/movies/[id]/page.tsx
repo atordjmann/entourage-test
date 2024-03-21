@@ -1,14 +1,14 @@
 "use client"
 import { useGetByIdQuery } from "@/lib/features/movies/moviesApiSlice";
-import { useParams } from "react-router-dom";
-import { Loader } from "../Loader";
-import { Error } from "../Error";
-import { SimilarMovies } from "./SimilarMovies";
+import { useParams } from "next/navigation";
+import { Loader } from "../../components/Loader";
+import { Error } from "../../components/Error";
+import { SimilarMovies } from "../../components/movies/SimilarMovies";
 import Image from "next/image";
 
 import styles from "../../styles/movies.module.css";
 
-export const MovieDetail = () => {
+function MovieDetail() {
   const params = useParams();
 
   if(params?.id == null){
@@ -67,3 +67,5 @@ export const MovieDetail = () => {
 
   return null;
 };
+
+export default MovieDetail;

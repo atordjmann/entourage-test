@@ -24,7 +24,7 @@ export const NowPlayingMovieList = () => {
     options = Array.from({length: data?.total_pages ?? 1 }, (_: any, i: number) => i + 1);
 
     return (
-      <div className={styles.movie_list}>
+      <div className={styles.home_movie_list}>
         <h1>Now playing</h1>
         <div className={styles.page_selection}>
           <h3>Select the page</h3>
