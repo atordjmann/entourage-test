@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "../styles/layout.module.css";
+
 export const Error = () => {
     return (
         <div className={styles.errorImg}>

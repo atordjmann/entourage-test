@@ -3,7 +3,7 @@ export interface MovieDto {
   backdrop_path: string,
   genre_ids: number[],
   id: number,
-  original_language: OriginalLanguage,
+  original_language: string,
   original_title: string,
   overview: string,
   popularity: number,
@@ -15,7 +15,7 @@ export interface MovieDto {
   vote_count: number
 }
 
-export interface UpcomingMoviesDto {
+export interface MovieListDto {
     dates: {
       maximum: string,
       minimum: string
@@ -30,8 +30,6 @@ export interface MovieDetailDto extends MovieDto {
   budget: number;
   homepage: string;
   imdb_id: string;
-  popularity: number;
-  poster_path: string;
   revenue: number;
   runtime: number;
   status: string;
@@ -63,5 +61,3 @@ export interface SpokenLanguage {
   iso_639_1: string;
   name: string;
 }
-
-export type OriginalLanguage = 'en' | 'fr';

@@ -4,9 +4,10 @@
     "header"
     "main"
     "footer";
-  grid-template-rows: auto auto 1fr 36px;
+  grid-template-rows: 60px auto 36px;
   align-items: center;
   min-height: 100vh;
+  align-items: stretch;
 }
 
 .header {
@@ -52,5 +53,25 @@
 .loaderImg {
   height: 10vmin;
   pointer-events: none;
-  background-color: #704cb6;
+  background-color: #0d161d;
+}
+
+.home_text {
+  height: 60vh;
+  width: 100%;
+  font-family: 'Sen';
+  color: white;
+  align-content: center;
+  text-align: center;
+  font-size: 50px;
+  background-image: url('../../public/marble.jpg');
+  background-size: cover;
+}
+
+.home_title {
+  font-size: 50px;
+}
+
+.home_subtitle {
+  font-size: 20px;
 }

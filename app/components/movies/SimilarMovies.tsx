@@ -1,8 +1,7 @@
 import { useGetSimilarMoviesByIdQuery } from "@/lib/features/movies/moviesApiSlice";
-import { Link } from "react-router-dom";
 import { Loader } from "../Loader";
 import { Error } from "../Error";
-import { Movie } from "./Movie";
+import { MoviePreview } from "./MoviePreview";
 
 type SimilarMoviesProps = {
     id: number;
@@ -26,7 +25,7 @@ export const SimilarMovies = ({id}: SimilarMoviesProps) => {
       <div>
         {data.results.map((movie) => (
           <div key={id}>
-            <Movie movie={movie} />
+            <MoviePreview movie={movie} />
           </div>
         ))}
       </div>

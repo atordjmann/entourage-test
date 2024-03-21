@@ -1,11 +1,10 @@
-.responsive_toolbar {
-    background: #333;
-    height: 60px;
-    width: 100%;
-    position: fixed;
-    font-family: 'Impact';
-    box-shadow: 2px 2px 2px #ccc;
-  }
+.toolbar {
+  background: #333;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  box-shadow: 0px 1px 3px #0d161d;
+}
 
 .nav {
   display: flex;
@@ -13,21 +12,44 @@
   padding: 0px;
   height: 100%;
   align-items: center;
-  justify-content: flex-end;
-  background: #333;
-  box-shadow: 2px 2px 2px #ccc;
-  
+  justify-content: space-between;
+  background: #0d161d;
+}
+
+.app_logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .figure {
   width: 40px;
   height: 40px;
   margin: 0px auto 0px 20px;
-  cursor: pointer;
+}
+
+.app_title {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: 'Marmelad', system-ui, sans-serif;
+  font-size: 30px;
 }
 
 .nav_element {
   list-style-type: none;
   margin: 0 15px;
+}
+
+.nav_link {
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding: 10px 20px;
 }
 
