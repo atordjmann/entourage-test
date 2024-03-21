@@ -1,3 +1,4 @@
+"use client"
 import { useGetSimilarMoviesByIdQuery } from "@/lib/features/movies/moviesApiSlice";
 import { Loader } from "../Loader";
 import { Error } from "../Error";

@@ -1,3 +1,4 @@
+"use client"
 import { useGetByIdQuery } from "@/lib/features/movies/moviesApiSlice";
 import { useParams } from "react-router-dom";
 import { Loader } from "../Loader";

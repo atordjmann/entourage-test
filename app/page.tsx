@@ -1,3 +1,4 @@
+"use client"
 import React from 'react'
 import {
   Routes,
@@ -10,7 +11,7 @@ import { BeforeTodayMovieList } from "./components/movies/BeforeTodayMovieList";
 
 export default function IndexPage() {
   return (
-      <div className="App">
+      <div className="App">        
         <Routes>
           <Route
             path="/"

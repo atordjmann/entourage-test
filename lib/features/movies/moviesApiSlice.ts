@@ -7,7 +7,7 @@ export const moviesApiSlice = createApi({
   baseQuery: fetchBaseQuery({ 
     baseUrl: "https://api.themoviedb.org/3/movie",
     prepareHeaders: (headers) => {
-        const token = process.env.TMDB_TOKEN ?? ''
+        const token = process.env.NEXT_PUBLIC_TMDB_TOKEN ?? ''
     
         // If we have a token set in state, let's assume that we should be passing it.
         headers.set('Authorization', `Bearer ${token}`)
