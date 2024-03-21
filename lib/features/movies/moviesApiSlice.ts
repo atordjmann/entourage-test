@@ -5,7 +5,7 @@ import { MovieDetailDto, MovieListDto } from "./movies.model";
 // Define a service using a base URL and expected endpoints
 export const moviesApiSlice = createApi({
   baseQuery: fetchBaseQuery({ 
-    baseUrl: "https://api.themoviedb.org/3/movie",
+    baseUrl: "https://api.themoviedb.org/3",
     prepareHeaders: (headers) => {
         const token = process.env.NEXT_PUBLIC_TMDB_TOKEN ?? ''
     
@@ -20,7 +20,7 @@ export const moviesApiSlice = createApi({
   tagTypes: ["Movies"],
   endpoints: (build) => ({
     getNowPlayingMovies: build.query<MovieListDto, number>({
-      query: (page) => `/now_playing?page=${page}`,
+      query: (page) => `/movie/now_playing?page=${page}`,
       // `providesTags` determines which 'tag' is attached to the
       // cached data returned by the query.
       providesTags: (result, error, id) => [{ type: "Movies", id }],
@@ -50,7 +50,7 @@ export const moviesApiSlice = createApi({
       },
     }),
     getById: build.query<MovieDetailDto, number>({
-      query: (id) => `/${id}`,
+      query: (id) => `/movie/${id}`,
       providesTags: (result, error, id) => [{ type: "Movies", id }],
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName
@@ -60,7 +60,7 @@ export const moviesApiSlice = createApi({
       },
     }),
     getSimilarMoviesById: build.query<MovieListDto, number>({
-      query: (id) => `/${id}/similar`,
+      query: (id) => `/movie/${id}/similar`,
       providesTags: (result, error, id) => [{ type: "Movies", id }],
       serializeQueryArgs: ({ endpointName }) => {
         return endpointName

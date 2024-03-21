@@ -9,7 +9,7 @@ type MovieProps = {
 }
 
 export const MoviePreview = ({movie}: MovieProps) => {
-  const imgSrc = movie.poster_path == null ? "/../../../public/cinema-adobe-stock.jpg" :
+  const imgSrc = movie.poster_path == null ? "/cinema-adobe-stock.jpg" :
     `https://image.tmdb.org/t/p/w500/${movie.poster_path}`;
 
   return (

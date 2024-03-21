@@ -28,7 +28,7 @@ export const MovieDetail = () => {
   }
 
   if (isSuccess) {
-    const imgSrc = data.poster_path == null ? "/../../../public/cinema-adobe-stock.jpg" :
+    const imgSrc = data.poster_path == null ? "/cinema-adobe-stock.jpg" :
     `https://image.tmdb.org/t/p/w500/${data.poster_path}`;
 
     return (
@@ -46,7 +46,7 @@ export const MovieDetail = () => {
           <p>{data.overview}</p>
           <p>Genres: {data.genres.map(g => g.name).join(', ')}</p>
         </div>
-      <Image src={imgSrc} height="150" width="150" alt="poster"/>
+        <Image src={imgSrc} height="150" width="150" alt="poster"/>
       </div>      
 
       <h1>Financial data</h1>
