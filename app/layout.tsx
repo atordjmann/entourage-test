@@ -2,7 +2,6 @@
 import type { ReactNode } from "react";
 import { StoreProvider } from "./StoreProvider";
 import Nav from "./components/Nav";
-import { BrowserRouter } from "react-router-dom";
 import { Footer } from "./components/Footer";
 
 import "./styles/globals.css";
@@ -16,7 +15,6 @@ export default function RootLayout({ children }: Props) {
 
   return (
     <StoreProvider>
-      <BrowserRouter>
         <html lang="en">
           <body>
             <section className={styles.container}>
@@ -32,7 +30,6 @@ export default function RootLayout({ children }: Props) {
             </section>
           </body>
         </html>
-      </BrowserRouter>
     </StoreProvider>
   );
 }

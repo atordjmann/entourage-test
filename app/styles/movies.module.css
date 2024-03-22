@@ -7,6 +7,10 @@
   padding: 2%;
 }
 
+.home_movie_list_title {
+    color:white;
+}
+
 .movie_list {    
     margin: 1%;
     border-radius: 10px 10px;

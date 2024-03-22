@@ -25,7 +25,7 @@ export const NowPlayingMovieList = () => {
 
     return (
       <div className={styles.home_movie_list}>
-        <h1>Now playing</h1>
+        <h1 className={styles.home_movie_list_title}>Now playing</h1>
         <div className={styles.page_selection}>
           <h3>Select the page</h3>
           <select className={styles.page_select}

@@ -44,6 +44,10 @@
   margin: 0 15px;
 }
 
+.nav_link_list {
+  display: flex;
+}
+
 .nav_link {
   color: #fff;
   text-decoration: none;

@@ -1,6 +1,5 @@
 "use client"
 import { MovieDto } from "@/lib/features/movies/movies.model";
-// import { Link } from "react-router-dom";
 import Image from "next/image";
 import styles from "../../styles/movies.module.css";
 import Link from "next/link";

@@ -1,6 +1,5 @@
 "use client"
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
 import styles from "../styles/toolbar.module.css";
 import Link from 'next/link';
 
@@ -30,17 +29,16 @@ function Nav () {
           </figure>
         <span className={styles.app_title}>Lost</span>
         </div>
+        <div className={styles.nav_link_list}>
         { navLinks.map((link, index) => 
           <li className={styles.nav_element} key={ index }
             onMouseEnter={ () => { setHoverIndex(index) } }
             onMouseLeave={ () => { setHoverIndex(-1) } } 
             style={{ background: hoverIndex === index ? '#999' : '' }}>
-            {/* <Link to={ link.path } className={styles.nav_link}>
-              { link.text }
-            </Link> */}
-            <Link href={ link.path }>{ link.text }</Link>
+            <Link href={ link.path } className={styles.nav_link}>{ link.text }</Link>
           </li>
         )}
+        </div>
       </ul>
     </nav>
   )
