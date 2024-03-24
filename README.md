@@ -48,7 +48,7 @@ Ne connaissant pas Next et Redux, j'ai essayé de garder mon code le plus simple
 Pour définir mes call à l'API de TMDB j'ai utilisé `createApi` que j'ai découvert dans un tuto de Redux et trouvé extrêmement pratique à utiliser.
 Pour le routing, j'ai utilisé le routing de base. Après avoir essayé le react-router-dom que je ne trouvais pas satisfaisant.
 
-J'ai beaucoup aimé faire ce test, mais il m'a pris beaucoup de temps car j'ai dû lire beaucoup de documentation avant de commencer à coder. Ainsi j'ai dépassé la moyenne des 4h, et me situe plutôt autour de 6h.
+J'ai beaucoup aimé faire ce test, mais il m'a pris beaucoup de temps car j'ai dû lire beaucoup de documentation avant de commencer à coder. Ainsi j'ai dépassé la moyenne des 4h, et me situe plutôt autour de 6h. Je n'ai ainsi pas pu faire les fonctionnalités supplémentaires demandées pour le test senior.
 
 Il y a trois pages:
 - La page d'accueil avec les films actuellement en salle
